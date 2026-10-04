@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        University Course Management System
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header>
+
+        <h1>
+            University Course Management System
+        </h1>
+
+        <p>
+            Manage your university courses
+        </p>
+
+
+        <div id="userInfo">
+
+            <span id="welcomeMessage">
+                Welcome, Guest
+            </span>
+
+
+            <button
+                id="logoutBtn"
+                style="display: none;"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ==================================================
+             LOGIN + REGISTER
+        ================================================== -->
+
+        <section
+            class="login-section"
+            id="loginSection"
+        >
+
+            <h2>
+                Student Login
+            </h2>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+
+            <p id="loginMessage"></p>
+
+
+            <hr>
+
+
+            <!-- REGISTER -->
+
+            <h2>
+                Create Student Account
+            </h2>
+
+
+            <form id="registerForm">
+
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <button type="submit">
+                    Register
+                </button>
+
+            </form>
+
+
+            <p id="registerMessage"></p>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             STUDENT DASHBOARD
+        ================================================== -->
+
+        <section
+            id="studentSection"
+            class="student-section"
+            style="display: none;"
+        >
+
+
+            <!-- STUDENT HEADER -->
+
+            <div class="student-header">
+
+                <div>
+
+                    <h2>
+                        Student Dashboard
+                    </h2>
+
+                    <p id="studentWelcome">
+                        Welcome, Student
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    onclick="loadMyCourses()"
+                >
+                    🔄 Refresh My Courses
+                </button>
+
+            </div>
+
+
+
+            <!-- AVAILABLE COURSES -->
+
+            <h2>
+                Available Courses
+            </h2>
+
+
+            <div id="coursesContainer">
+
+                Loading courses...
+
+            </div>
+
+
+
+            <hr>
+
+
+
+            <!-- MY ENROLLED COURSES -->
+
+            <h2>
+                My Enrolled Courses
+            </h2>
+
+
+            <div id="myCoursesContainer">
+
+                No courses enrolled yet.
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ADMIN DASHBOARD
+        ================================================== -->
+
+        <section
+            id="adminSection"
+            class="admin-section"
+            style="display: none;"
+        >
+
+
+            <h2>
+                Admin Dashboard
+            </h2>
+
+
+
+            <!-- ADMIN STATISTICS -->
+
+            <div class="admin-stats">
+
+                <div class="stat-card">
+
+                    <h3>
+                        Total Courses
+                    </h3>
+
+                    <p id="totalCourses">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ADD COURSE -->
+
+            <h3>
+                Add New Course
+            </h3>
+
+
+            <form id="courseForm">
+
+                <input
+                    type="text"
+                    id="courseTitle"
+                    placeholder="Course title"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="courseCode"
+                    placeholder="Course code"
+                    required
+                >
+
+
+                <textarea
+                    id="courseDescription"
+                    placeholder="Course description"
+                    required
+                ></textarea>
+
+
+                <input
+                    type="text"
+                    id="courseInstructor"
+                    placeholder="Instructor name"
+                    required
+                >
+
+
+                <input
+                    type="number"
+                    id="courseCredits"
+                    placeholder="Credits"
+                    min="1"
+                    required
+                >
+
+
+                <button type="submit">
+                    Add Course
+                </button>
+
+            </form>
+
+
+            <p id="courseMessage"></p>
+
+
+            <hr>
+
+
+
+            <!-- MANAGE COURSES -->
+
+            <div class="admin-course-header">
+
+                <h3>
+                    Manage Courses
+                </h3>
+
+
+                <button
+                    type="button"
+                    onclick="loadAdminCourses()"
+                >
+                    🔄 Refresh Courses
+                </button>
+
+            </div>
+
+
+            <div id="adminCourses">
+
+                <!-- Admin courses will appear here -->
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="app.js"></script>
+
+
+</body>
+
+</html>   
